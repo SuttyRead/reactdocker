@@ -1,15 +1,6 @@
 version: '3.1'
 
 services:
-
-  db:
-    image: mysql:5.7
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: new_base
-    ports:
-      - 3308:3306
   server:
     image: suttyread/react-server
     ports:
