@@ -1,0 +1,9 @@
+sudo docker stop $(docker ps -q)
+sudo docker rm $(docker ps -a -q)
+sudo docker rmi -f $(sudo docker images -q)
+
+mvn clean package && sudo docker build -t suttyread/react-server .
+
+cd react-client && sudo docker build -t suttyread/react-client . && cd - && cd react-server && mvn clean package && sudo docker build -t suttyread/react-server . && cd - && sudo docker-compose up -d
+
+sudo docker stop $(docker ps -q) && sudo docker rm $(docker ps -a -q) && sudo docker rmi -f $(sudo docker images -q)
